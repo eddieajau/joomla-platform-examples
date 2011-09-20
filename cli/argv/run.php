@@ -26,7 +26,7 @@ jimport('joomla.application.cli');
 /**
  * An example command line application class.
  *
- * This application shows how to access configuration file values.
+ * This application shows how to access command line arguments.
  *
  * @package  Joomla.Examples
  * @since    11.3

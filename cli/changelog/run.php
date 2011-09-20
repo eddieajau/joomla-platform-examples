@@ -35,8 +35,7 @@ JLoader::register('ElephantMarkdown', __DIR__.'/includes/markdown.php');
  * This application builds the HTML version of the Joomla Platform change log from the Github API
  * that is used in news annoucements.
  *
- * @package		NewLifeInIT
- * @subpackage	cron
+ * @package  Joomla.Examples
  */
 class Changelog extends JCli
 {
