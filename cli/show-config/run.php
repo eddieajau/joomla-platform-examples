@@ -22,7 +22,7 @@ define('_JEXEC', 1);
 define('JPATH_BASE', dirname(__FILE__));
 
 // Bootstrap the application.
-require dirname(dirname(dirname(dirname(__FILE__)))).'/libraries/import.php';
+require dirname(dirname(dirname(__FILE__))).'/bootstrap.php';
 
 // Import the JCli class from the platform.
 jimport('joomla.application.cli');

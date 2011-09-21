@@ -25,7 +25,7 @@ define('_JEXEC', 1);
 define('JPATH_BASE', dirname(__FILE__));
 
 // Bootstrap the application.
-require dirname(dirname(dirname(dirname(__FILE__)))).'/libraries/import.php';
+require dirname(dirname(dirname(__FILE__))).'/bootstrap.php';
 
 // Import the JCli class from the platform.
 jimport('joomla.application.cli');
@@ -61,7 +61,7 @@ class DatabaseApp extends JCli
 	 * @since   11.3
 	 * @throws  JDatabaseException
 	 */
-	protected function __construct()
+	public function __construct()
 	{
 		// Call the parent __construct method so it bootstraps the application class.
 		parent::__construct();

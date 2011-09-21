@@ -22,7 +22,7 @@ define('_JEXEC', 1);
 define('JPATH_BASE', dirname(__FILE__));
 
 // Bootstrap the application.
-require dirname(dirname(dirname(dirname(__FILE__)))).'/libraries/import.php';
+require dirname(dirname(dirname(__FILE__))).'/bootstrap.php';
 
 jimport('joomla.application.cli');
 
@@ -35,8 +35,7 @@ JLoader::register('ElephantMarkdown', __DIR__.'/includes/markdown.php');
  * This application builds the HTML version of the Joomla Platform change log from the Github API
  * that is used in news annoucements.
  *
- * @package		NewLifeInIT
- * @subpackage	cron
+ * @package  Joomla.Examples
  */
 class Changelog extends JCli
 {
