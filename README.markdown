@@ -41,6 +41,18 @@ changelog
 This application builds the HTML version of the Joomla Platform change log from the Github API
 that is used in news annoucements. It provides an example of how to use the ``JHttp`` class.
 
+cron-plugins
+------------
+
+This application show you how you could use JCli to build a cron manager for Joomla CMS plugins.
+The plugins would be configured via parameters in the CMS itself, but run via this command line
+application. It makes use of JLog for logging activity in rolling daily log files. The
+application would simply be added to any available scheduling software and run at appropriate
+intervals.
+
+While this example shows how to run all the plugins at the same time, it would not be difficult
+to add an additional database table to support staggered running of individual plugins.
+
 database
 --------
 
