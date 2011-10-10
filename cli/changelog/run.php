@@ -203,6 +203,7 @@ try
 }
 catch (Exception $e)
 {
-	$this->out($e->getMessage());
-	$this->close($e->getCode());
+	// An exception has been caught, just echo the message.
+	fwrite(STDOUT, $e->getMessage() . "\n");
+	exit($e->getCode());
 }
