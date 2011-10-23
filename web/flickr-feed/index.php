@@ -15,7 +15,6 @@ define('_JEXEC', 1);
 // Setup the base path related constant.
 define('JPATH_BASE', dirname(__FILE__));
 define('JPATH_SITE', JPATH_BASE);
-define('JPATH_CACHE', JPATH_BASE.'/cache');
 define('JPATH_THEMES', JPATH_BASE.'/themes');
 
 // Increase error reporting to that any errors are displayed.
