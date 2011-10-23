@@ -29,12 +29,6 @@ require dirname(dirname(dirname(__FILE__))).'/bootstrap.php';
 // Import the JWeb class from the platform.
 jimport('joomla.application.web');
 
-// Import libraries needed to render the document.
-// These will be unnecessary once https://github.com/joomla/joomla-platform/pull/458
-// has been merged.
-jimport('joomla.environment.response');
-jimport('joomla.utilities.utility');
-
 // Set error handler to echo
 JError::setErrorHandling(E_ERROR, 'echo');
 
@@ -61,8 +55,7 @@ class FlickrFeed extends JWeb
 		$context = stream_context_create(array('http' => array('method' => 'GET')));
 
 		// Open Flickr Feed as a Stream.
-		//$feed = file_get_contents('http://api.flickr.com/services/feeds/photos_public.gne', false, $context);
-		$feed = file_get_contents('http://localhost/joomladayny/examples/web/flickr-feed/feed.xml', false, $context);
+		$feed = @file_get_contents('http://api.flickr.com/services/feeds/photos_public.gne', false, $context);
 
 		// Check if the feed could be opened.
 		if (!$feed)
@@ -81,7 +74,6 @@ class FlickrFeed extends JWeb
 		// Iterate through the elements in the stream.
 		foreach ($reader->entry as $entry)
 		{
-			//echo '<h1>'.$entry->title->data().'</h1>';
 			echo '<div class="cell">';
 			echo $entry->content->data();
 			echo '</div>';
