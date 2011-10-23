@@ -82,7 +82,9 @@ class FlickrFeed extends JWeb
 		foreach ($reader->entry as $entry)
 		{
 			//echo '<h1>'.$entry->title->data().'</h1>';
+			echo '<div class="cell">';
 			echo $entry->content->data();
+			echo '</div>';
 		}
 
 		// Get the buffer output.
