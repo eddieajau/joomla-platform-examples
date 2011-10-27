@@ -10,6 +10,10 @@ Clone or download the https://github.com/joomla/joomla-platform and
 https://github.com/joomla/joomla-platform-examples under the same parent folder.
 Then copy the ``bootstrap.dist.php`` file to ``bootstrap.php``.
 
+For example, if your parent folder is called ``joomla-platform``, you would have the following
+folders under the ``joomla-platform`` folder: ``build, cli, libraries, media, tests, and web``.
+You would also have a file called ``bootstrap.php`` in that folder.
+
 Running Examples
 ================
 
