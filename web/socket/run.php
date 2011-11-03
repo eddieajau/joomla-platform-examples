@@ -66,68 +66,30 @@ class SocketServer extends JCli implements JWebSocketController
 		$host = '127.0.0.1';
 		$port = 8080;
 
-		// 		require 'server.php';
-		// 		require 'user.php';
-		//
-		// 		$webSocket = new WebSocketServer("127.0.0.1", 8080, array($this, 'process'));
-		// 		$webSocket->run();
-
-
 		JWebSocketDaemon::getInstance($host, $port, $this)->start();
+	}
+
+	function onClose()
+	{
+		$this->out('Socket connection closing.');
+	}
+
+	function onError($err)
+	{
+		$this->out('Socket error.');
 	}
 
 	function onMessage($msg)
 	{
 		$size = $msg['size'];
 		$data = $msg['frame'];
-		echo "\nWe have been sent " . $data;
-		return 'Foo';
-	}
-
-	function onClose()
-	{
-		echo "closing connection \n";
-	}
-
-	function onError($err)
-	{
+		return 'Pong';
 	}
 
 	function setProtocol(JWebSocketProtocol $protocol)
 	{
 		$this->_protocol = $protocol;
 	}
-
-	/**
-	 * callback function
-	 * @param WebSocketUser $user Current user
-	 * @param string $msg Data from user sent
-	 * @param WebSocketServer $server Server object
-	 */
-	function process($user, $msg, $server)
-	{
-
-		// every websocket user can have mixed data (like position or color)
-		$user->data['position'] = $msg;
-
-		$return = array();
-		foreach ($server->getUsers() as $user)
-		{
-			if (!isset($user->data['color']))
-			{
-				$user->data['color'] = 'red';
-				$user->data['ip'] = $user->ip;
-			}
-			$return[$user->id] = $user->data;
-		}
-
-		// send the data to all current users
-		foreach ($server->getUsers() as $user)
-		{
-			$server->send($user->socket, json_encode($return));
-		}
-	}
-
 }
 
 // Wrap the execution in a try statement to catch any exceptions thrown anywhere in the script.

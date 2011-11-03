@@ -4,7 +4,6 @@
 
 var SocketConnector = new Class({
 	logger: null,
-	socket: null,
 
 	/**
 	 * @param   object  The textarea to send log messages to.
@@ -15,7 +14,7 @@ var SocketConnector = new Class({
 		if ("WebSocket" in window) {
 			this.log('Checking ... sockets available.');
 			
-			uri = "ws://127.0.0.1:8000/examples/socket/server.php";
+			uri = "ws://127.0.0.1:8080/examples/socket/server.php";
 			
 			try {
 				this.socket = new WebSocket(uri);
@@ -23,16 +22,18 @@ var SocketConnector = new Class({
 				this.log(this.socket.readyState);
 				
 				this.socket.onopen = function() {
+					console.log(this);
 					this.log('Socket opening: '+this.socket.readyState);
-				}
+				}.bind(this);
 				
 				this.socket.onmessage = function(message) {
+					console.log(message);
 					this.log('Received: '+message.data);
-				}
+				}.bind(this);
 				
 				this.socket.onclose = function() {
-					this.log('Socket closing: '+this.socket.readyState);
-				}
+					this.log('Socket closing: '+this.readyState);
+				}.bind(this);
 			} catch (exception) {
 				this.log('Error: '.exception);
 			}
