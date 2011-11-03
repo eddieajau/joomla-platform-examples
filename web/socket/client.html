@@ -10,31 +10,6 @@
 		window.addEvent('load', function() {
 			Socket = new SocketConnector(document.id('log'));
 		});
-		var socket;
-		 
-		function init() {
-			var host = "ws://127.0.0.1:8080/examples/socket/server.php";
-			try {
-				socket = new WebSocket(host);
-				
-				socket.onopen = function(msg) {};
-				
-				socket.onmessage = function(msg) {
-					console.log(msg);
-					data = JSON.decode(msg.data.replace("\0", ''));
-					console.log(data);
-				};
-				
-				socket.onclose = function(msg){ };
-			} catch(ex) {
-				console.log(ex); 
-			}
-		}
-		 
-		function ssend(x,y) {
-			var msg = x + ',' + y;
-			socket.send(msg);
-		}
 		</script>
 	<body>
 		

@@ -22,7 +22,6 @@ var SocketConnector = new Class({
 				this.log(this.socket.readyState);
 				
 				this.socket.onopen = function() {
-					console.log(this);
 					this.log('Socket opening: '+this.socket.readyState);
 				}.bind(this);
 				
@@ -32,7 +31,7 @@ var SocketConnector = new Class({
 				}.bind(this);
 				
 				this.socket.onclose = function() {
-					this.log('Socket closing: '+this.readyState);
+					this.log('Socket closing: '+this.socket.readyState);
 				}.bind(this);
 			} catch (exception) {
 				this.log('Error: '.exception);
