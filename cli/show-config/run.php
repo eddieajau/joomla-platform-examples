@@ -87,8 +87,8 @@ class ShowConfig extends JCli
 
 		$this->out(
 			sprintf(
-				'%-25s = %s', 'execution.timestamp',
-				$this->get('execution.timestamp')
+				'%-25s = %s', 'execution.datetime',
+				$this->get('execution.datetime')
 			)
 		);
 
