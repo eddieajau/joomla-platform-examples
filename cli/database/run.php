@@ -89,7 +89,7 @@ class DatabaseApp extends JCli
 	 *
 	 * @since   11.3
 	 */
-	public function execute()
+	public function doExecute()
 	{
 		// Get the quey builder class from the database.
 		$query = $this->dbo->getQuery(true);
@@ -119,6 +119,6 @@ try
 catch (Exception $e)
 {
 	// An exception has been caught, just echo the message.
-	fwrite(STDOUT, $e->getMessage() . "\n");
+	fwrite(STDOUT, 'Exception: '.$e->getMessage() . "\n");
 	exit($e->getCode());
 }
