@@ -54,7 +54,7 @@ class FlickrFeed extends JWeb
 		$context = stream_context_create(array('http' => array('method' => 'GET')));
 
 		// Open Flickr Feed as a Stream.
-		$feed = @file_get_contents('http://api.flickr.com/services/feeds/photos_public.gne', false, $context);
+		$feed = file_get_contents('http://api.flickr.com/services/feeds/photos_public.gne', false, $context);
 
 		// Check if the feed could be opened.
 		if (!$feed)
